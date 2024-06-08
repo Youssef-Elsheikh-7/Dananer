@@ -20,11 +20,11 @@ function FormToSignUp() {
   const onSubmitHandler = (e) => {
     e.preventDefault();
     console.log(formData);
-    // axios
-    //   .post(
-    //     `https://yousef.damas-arch.com/api/register?name=${formData.name}&email=${formData.email}&password=${formData.password}&password_confirmation=${formData.password_confirmation}`
-    //   )
-    //   .then((data) => console.log(data));
+    axios
+      .post(
+        `https://yousef.damas-arch.com/api/register?name=${formData.name}&email=${formData.email}&password=${formData.password}&password_confirmation=${formData.password_confirmation}`
+      )
+      .then((data) => console.log(data));
   };
 
   return (
