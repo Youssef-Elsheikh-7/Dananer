@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "../images/logo.svg";
 import { Link } from "react-router-dom";
+import avatar from '../images/user.png'
+import axios from "axios";
 
 function Header() {
-  const [logIn, setlogIn] = useState(true);
+  const [logIn, setlogIn] = useState(localStorage.getItem('role'));
   return (
     <header className="header" data-header>
       <div className="container">
@@ -12,14 +14,21 @@ function Header() {
           Dananyer
         </a>
         {(() => {
-          if (logIn) {
+          if (logIn === 'empty' || null || undefined) {
             return (
               <Link className="loginbtn" to={"loginorsignup"}>
                 LogIn / SignUp
               </Link>
             );
-          } else {
-            return <Link className="userData">useData</Link>;
+          }  else if(logIn === 'user') {
+            return <Link className="userData" to={'/userProfile'}>
+              <img src={avatar} alt="" style={{width:'40px',height:'40px'}}/>
+            </Link>;
+
+          }else {
+            return <Link className="userData" to={'/adminProfile'}>
+              <img src={avatar} alt="" style={{width:'40px',height:'40px'}}/>
+            </Link>;
           }
         })()}
       </div>

@@ -20,11 +20,15 @@ import HistoryChart from "./Components/HistoryChart";
 import FormToLogin from "./Components/FormToLogin";
 import FormToSignUp from "./Components/FormToSignUp";
 import AllCoinsList from "./Components/AllCoinsList";
+import UserProfile from "./Components/UserProfile";
+import AdminProfile from "./Components/AdminProfile";
 
 // import "../node_modules/bootstrap/dist/css/m"
 
 function App() {
   window.localStorage.setItem("currency", "USD");
+  // localStorage.setItem('token','empty');
+  // localStorage.setItem('role','empty');
   return (
     <>
       <Routes>
@@ -34,21 +38,7 @@ function App() {
             <>
               <Header />
               <main>
-                <article>
-                  <Landing />
-                  <SliderBet />
-                  <CoinsList />
-                  <BarChatrSec />
-                  <div className="charts-x01">
-                    <CircleChartSec />
-                    <PolarAreaChart />
-                  </div>
-                  <div className="charts-x02">
-                    <DoughnutChart />
-                    <LineChart />
-                  </div>
-                  <AreaChart />
-                </article>
+              
               </main>
             </>
           }
@@ -65,6 +55,8 @@ function App() {
         <Route path="loginorsignup" element={<FormToLogin />} />
         <Route path="signup" element={<FormToSignUp />} />
         <Route path="coinList" element={<AllCoinsList />} />
+        <Route path="userProfile" element={<UserProfile />} />
+        <Route path="adminProfile" element={<AdminProfile />} />
       </Routes>
       <Footer />
     </>
@@ -72,3 +64,38 @@ function App() {
 }
 
 export default App;
+
+
+
+// <article>
+//                   <Landing />
+//                   <SliderBet />
+//                   <CoinsList />
+//                   <BarChatrSec />
+//                   <div className="charts-x01">
+//                     <CircleChartSec />
+//                     <PolarAreaChart />
+//                   </div>
+//                   <div className="charts-x02">
+//                     <DoughnutChart />
+//                     <LineChart />
+//                   </div>
+//                   <AreaChart />
+//                 </article>
+
+
+{/* <article>
+                  <Landing />
+                  <SliderBet />
+                  <CoinsList />
+                  <BarChatrSec />
+                  <div className="charts-x01">
+                    <CircleChartSec />
+                    <PolarAreaChart />
+                  </div>
+                  <div className="charts-x02">
+                    <DoughnutChart />
+                    <LineChart />
+                  </div>
+                  <AreaChart />
+                </article> */}

@@ -1,11 +1,16 @@
+import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function FormToLogin() {
+  const navigate = useNavigate();
   const [formData2, setFormData2] = useState({
     email: "",
     password: "",
   });
+
+  const [loginSaccess,setloginSaccess] = useState(false)
+  const [userData,setUserData] = useState([])
 
   const inputHandler2 = (e) => {
     const key = e.target.id;
@@ -17,12 +22,22 @@ function FormToLogin() {
   const onSubmitHandler2 = (e) => {
     e.preventDefault();
     console.log(formData2);
-    // axios
-    //   .post(
-    //     `https://yousef.damas-arch.com/api/register?name=${formData.name}&email=${formData.email}&password=${formData.password}&password_confirmation=${formData.password_confirmation}`
-    //   )
-    //   .then((data) => console.log(data));
+    axios
+      .post(
+        `https://yousef.damas-arch.com/api/login?email=${formData2.email}&password=${formData2.password}`
+      )
+      .then((data) => {
+        console.log(data)
+        if(data.status === 200 || 201){
+          localStorage.setItem('token',data.data.data.token)
+          localStorage.setItem('role',data.data.data.user.role)
+          navigate('/')
+        }
+        setUserData(data)
+        setloginSaccess(true)
+      });
   };
+  console.log()
   return (
     <div className="login-x001">
       <div className="container">

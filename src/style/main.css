@@ -1452,3 +1452,39 @@ width: 150px;
 .customButtons button {
   background-color: #3874ff;
 }
+
+.userInfo-x02 {
+  text-align: center;
+  margin: 50px auto;
+  min-height: 100vh;
+  color: #fff;
+}
+.userInfo-x02 img {
+  display: block;
+    margin: 30px auto;
+}
+
+.userInfo-x02 > * {
+  margin: 10px auto;
+}
+
+.userInfo-x02 span, .seppppp-x02 {
+  border-top: 1px solid #eee;
+}
+
+.userrow-x02{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+}
+
+.userrow-x02 button {
+  background-color: red;
+  color: #fff;
+}
+
+.userrow-x02 button:hover {
+  border: transparent;
+  background-color: rgb(221, 0, 0);
+}

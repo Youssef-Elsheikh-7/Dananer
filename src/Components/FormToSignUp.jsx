@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function FormToSignUp() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,7 +25,11 @@ function FormToSignUp() {
       .post(
         `https://yousef.damas-arch.com/api/register?name=${formData.name}&email=${formData.email}&password=${formData.password}&password_confirmation=${formData.password_confirmation}`
       )
-      .then((data) => console.log(data));
+      .then((data) => {
+        if(data.status === 200 || 201){
+          navigate("/loginorsignup")
+        }
+      });
   };
 
   return (

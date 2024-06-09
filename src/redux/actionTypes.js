@@ -1,0 +1,1 @@
+export const GET_CHARTS_DATA = "GET_CHARTS_DATA"
